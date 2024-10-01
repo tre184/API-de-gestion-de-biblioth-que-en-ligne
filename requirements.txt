@@ -1,2 +1,8 @@
 fastapi[standard]
 python-dotenv
+
+pydantic[email,timezone]
+sqlalchemy
+alembic
+oracledb
+passlib[bcrypt]

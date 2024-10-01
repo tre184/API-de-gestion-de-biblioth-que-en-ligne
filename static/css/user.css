@@ -1,0 +1,148 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    background-color: #fff;
+    color: #4CAF50;
+    padding: 8px 16px;
+    border: 1px solid #4CAF50;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.search-bar button:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+/* Lien de déconnexion */
+.login-button {
+    background-color: white;
+    color: #4CAF50;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.login-button:hover {
+    background-color: #fff;
+    border: 1px solid #4CAF50;
+}
+
+/* Liste des livres */
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.book-item {
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    width: 30%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.book-item h3 {
+    margin-top: 0;
+}
+
+.book-item p {
+    margin: 5px 0;
+}
+
+.book-item button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.book-item button:hover {
+    background-color: #45a049;
+}
+
+.book-item button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Formulaire pour emprunts */
+form {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

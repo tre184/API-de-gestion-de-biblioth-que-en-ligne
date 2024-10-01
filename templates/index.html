@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque en ligne</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+
+
+</head>
+<body>
+<!-- Header avec barre de recherche et bouton de connexion -->
+<header>
+    <div class="container">
+        <h1>Bibliothèque en ligne</h1>
+        <!-- Barre de recherche -->
+        <form class="search-bar" action="#" method="GET">
+            <input type="text" name="search" placeholder="Rechercher un livre...">
+            <button type="submit">Rechercher</button>
+        </form>
+
+        <!-- Lien de connexion -->
+        <a href="{{ request.url_for('connexion') }}" class="login-button">Connexion</a>
+    </div>
+</header>
+
+<!-- Section des livres -->
+<section class="container">
+    <h2>Nos Livres</h2>
+    <div class="book-list">
+        <!-- Boucle sur les livres dans Jinja2 -->
+        {% for book in books %}
+        <div class="book-item">
+            <h3>Titre: {{ book.title }}</h3>
+            <p>Auteur: {{ book.author }}</p>
+            <p>Publication: {{ book.publication_date }}</p>
+            <p>Disponibilité: {{ 'Disponible' if book.availability else 'Indisponible' }}</p>
+            <button type="button" {% if not book.availability %} disabled {% endif %}>
+                {{ 'Emprunter' if book.availability else 'Emprunté' }}
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Bibliothèque en ligne</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque en ligne</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+<!-- Header avec barre de recherche et bouton de connexion -->
+<header>
+    <div class="container">
+        <h1>Bibliothèque en ligne</h1>
+        <!-- Barre de recherche -->
+        <form class="search-bar" action="#" method="GET">
+            <input type="text" name="search" placeholder="Rechercher un livre...">
+            <button type="submit">Rechercher</button>
+        </form>
+
+        <!-- Lien de connexion -->
+        <a href="connexion.html" class="login-button">Connexion</a>
+    </div>
+</header>
+
+<!-- Section des livres -->
+<section class="container">
+    <h2>Nos Livres</h2>
+    <div class="book-list">
+        <!-- Livre 1 -->
+        <div class="book-item">
+            <h3>Titre: L'Art de la Guerre</h3>
+            <p>Auteur: Sun Tzu</p>
+            <p>Publication: 2005</p>
+            <p>Disponibilité: Disponible</p>
+            <button type="button">Emprunter</button>
+        </div>
+
+        <!-- Livre 2 -->
+        <div class="book-item">
+            <h3>Titre: 1984</h3>
+            <p>Auteur: George Orwell</p>
+            <p>Publication: 1949</p>
+            <p>Disponibilité: Indisponible</p>
+            <button type="button" disabled>Emprunté</button>
+        </div>
+
+        <!-- Livre 3 -->
+        <div class="book-item">
+            <h3>Titre: Le Petit Prince</h3>
+            <p>Auteur: Antoine de Saint-Exupéry</p>
+            <p>Publication: 1943</p>
+            <p>Disponibilité: Disponible</p>
+            <button type="button">Emprunter</button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Bibliothèque en ligne</p>
+</footer>
+</body>
+</html>

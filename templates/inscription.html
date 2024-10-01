@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="/static/css/inscription.css">
+</head>
+<body>
+<header>
+    <h1>Inscription à la Bibliothèque en ligne</h1>
+</header>
+
+<section class="container">
+    <h2>Créer un nouveau compte</h2>
+    <form action="{{ request.url_for('submit_signup') }}" method="POST">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" placeholder="Entrez votre nom" required>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+
+        <label for="phone">Téléphone :</label>
+        <input type="text" id="phone" name="phone" placeholder="Entrez votre numéro de téléphone" required>
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+
+        <label for="confirm_password">Confirmez le mot de passe :</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmez votre mot de passe" required>
+
+        <input type="submit" value="S'inscrire">
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2024 Bibliothèque en ligne</p>
+</footer>
+</body>
+</html>
+

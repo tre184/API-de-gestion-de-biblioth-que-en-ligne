@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque en ligne - Mes Livres</title>
+    <link rel="stylesheet" href="/static/user.css">
+</head>
+<body>
+<header>
+    <h1>Bibliothèque en ligne - Espace {{ user.name }}</h1>
+    <form class="search-bar" action="#" method="GET">
+        <input type="text" name="search" placeholder="Rechercher un livre...">
+        <button type="submit">Rechercher</button>
+    </form>
+
+    <!-- Lien de connexion -->
+    <a href="index.html" class="login-button">Deconnexion</a>
+</header>
+
+<section class="container">
+    <h2>Liste des livres disponibles</h2>
+    <div class="book-list">
+        <!-- Boucle Jinja pour afficher chaque livre -->
+        {% for book in books %}
+        <div class="book-item">
+            <h3>Titre: {{ book.title }}</h3>
+            <p>Auteur: {{ book.author }}</p>
+            <p>Publication: {{ book.year }}</p>
+            <p>Disponibilité: {{ 'Disponible' if book.available else 'Indisponible' }}</p>
+            <button type="button" {% if not book.available %} disabled {% endif %}>
+                {{ 'Emprunter' if book.available else 'Emprunté' }}
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="container">
+    <!-- Bouton pour voir les livres empruntés récemment -->
+    <form action="{{ url_for('recent_emprunts') }}" method="GET">
+        <input type="submit" value="Voir les livres empruntés récemment">
+    </form>
+
+    <!-- Bouton pour voir l'historique des emprunts -->
+    <form action="{{ url_for('historique_emprunts') }}" method="GET">
+        <input type="submit" value="Voir l'historique des emprunts">
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2024 Bibliothèque en ligne</p>
+</footer>
+</body>
+</html>
