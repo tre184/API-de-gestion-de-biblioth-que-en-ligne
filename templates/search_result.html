@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de recherche</title>
+    <link rel="stylesheet" href="/static/css/search_result.css">
+</head>
+<body>
+
+<h2>Résultats de recherche</h2>
+
+<section class="container">
+    <div class="book-list">
+        {% if books %}
+        <!-- Boucle sur les livres trouvés -->
+        {% for book in books %}
+        <div class="book-item">
+            <h3>Titre: {{ book.title }}</h3>
+            <p>Auteur: {{ book.author }}</p>
+            <p>Genre: {{ book.kind }}</p>
+            <p>Publication: {{ book.publication_date }}</p>
+            <p>Disponibilité: {{ 'Disponible' if book.availability else 'Indisponible' }}</p>
+            <form action="{{ url_for('search_book') }}" method="get">
+                <input type="hidden" name="title" value="{{ book.title }}">
+                <input type="hidden" name="author" value="{{ book.author }}">
+                <input type="hidden" name="kind" value="{{ book.kind }}">
+                <button type="submit" {% if not book.availability %} disabled {% endif %}>
+                    Emprunter
+                </button>
+            </form>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p class="no-results">Aucun livre trouvé pour les critères de recherche fournis.</p>
+        {% endif %}
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Bibliothèque en ligne</p>
+</footer>
+
+</body>
+</html>
+

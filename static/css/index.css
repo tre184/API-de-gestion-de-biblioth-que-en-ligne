@@ -67,6 +67,20 @@ header h1 {
     border: 1px solid #4CAF50;
 }
 
+nav a {
+    color: #4CAF50;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #e6e6e6;
+    border-radius: 5px;
+}
+
 /* Section des livres */
 section h2 {
     margin-top: 20px;

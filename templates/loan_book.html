@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emprunter un Livre</title>
+  <link rel="stylesheet" href="/static/css/loan_book.css">
+</head>
+<body>
+<header>
+  <h1>Emprunter : {{ book.title }}</h1>
+</header>
+
+<section class="container">
+  <h2>Détails du Livre</h2>
+  <p><strong>Titre :</strong> {{ book.title }}</p>
+  <p><strong>Auteur :</strong> {{ book.author }}</p>
+  <p><strong>Genre :</strong> {{ book.kind }}</p>
+  <p><strong>Date de publication :</strong> {{ book.publication_date }}</p>
+
+  <form action="{{ url_for('loan_book', username=user.name, book_title=book.title) }}" method="post">
+    <label for="return_date">Date de retour (dans les 30 jours) :</label>
+    <input type="date" id="return_date" name="return_date" required>
+    <button type="submit" class="btn-emprunter">Confirmer l'emprunt</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2024 Bibliothèque en ligne</p>
+</footer>
+</body>
+</html>
+

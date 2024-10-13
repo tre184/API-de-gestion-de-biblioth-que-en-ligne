@@ -5,4 +5,7 @@ pydantic[email,timezone]
 sqlalchemy
 alembic
 oracledb
+bcrypt==4.0.1
 passlib[bcrypt]
+fastapi-login
+python-jose

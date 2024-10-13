@@ -1,0 +1,36 @@
+/* Emprunt List Styling */
+.emprunt-liste {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.emprunt-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.emprunt-item strong {
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-retourner {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-retourner:hover {
+    background-color: #45a049;
+}

@@ -1,6 +1,7 @@
 from pydantic import BaseModel, PositiveInt, EmailStr, constr, ValidationError
 from datetime import date
 from typing import Optional, List
+from fastapi import Form
 
 
 from passlib.context import CryptContext
@@ -15,14 +16,28 @@ def hash_password(password: str) -> str:
 # Schéma de base pour les utilisateurs
 class User(BaseModel):
     name: str
-    email: str
+    email: EmailStr
     phone: Optional[str] | None
+
+# Schéma pour la connexion utilisateur
+class UserLogin(BaseModel):
+    username: str
+    password: str
+
+    @classmethod
+    def as_form(
+            cls,
+            username: str = Form(...),
+            password: str = Form(...),
+    ):
+        return cls(username=username, password=password)
 
 # Schéma pour créer un utilisateur (incluant le mot de passe)
 class UserCreate(User):
     password: constr(min_length=6)
+
     @classmethod
-    def create_user(cls, name: str, email: str, phone: Optional[str], password: str) -> 'UserCreate':
+    def create_user(cls, name: str, email: EmailStr, phone: Optional[str], password: str) -> 'UserCreate':
         hashed_password = hash_password(password)  # Hachage du mot de passe avant de le stocker
         return cls(name=name, email=email, phone=phone, password=hashed_password)
 # Schéma pour retourner un utilisateur (incluant l'ID)
@@ -36,6 +51,7 @@ class UserCreated(User):
 class Book(BaseModel):
     title: str
     author: str
+    kind: str
     publication_date: date
     availability: Optional[bool] = True
 
@@ -69,6 +85,7 @@ class EmpruntCreated(Emprunt):
 
     class Config:
         from_attributes = True
+
 
 # Simuler des utilisateurs en dur
 #users = [

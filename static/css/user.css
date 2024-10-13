@@ -1,55 +1,64 @@
-/* Styles généraux */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* Réinitialisation des styles par défaut */
+* {
     margin: 0;
     padding: 0;
-    color: #333;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Conteneur principal */
 .container {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     padding: 20px 0;
 }
 
 /* Header */
+
 header {
     background-color: #4CAF50;
     color: white;
-    padding: 15px 0;
+    padding: 20px 0;
+    text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 header h1 {
     margin: 0;
-    flex: 1;
-    text-align: center;
+    flex-grow: 1;
+    text-align: left;
 }
 
 .search-bar {
-    display: flex;
-    gap: 10px;
     margin-top: 10px;
 }
 
 .search-bar input[type="text"] {
-    padding: 8px;
+    padding: 10px;
     width: 300px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 .search-bar button {
     background-color: #fff;
     color: #4CAF50;
-    padding: 8px 16px;
+    padding: 10px 20px;
     border: 1px solid #4CAF50;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 .search-bar button:hover {
@@ -57,7 +66,7 @@ header h1 {
     color: white;
 }
 
-/* Lien de déconnexion */
+/* Bouton de connexion */
 .login-button {
     background-color: white;
     color: #4CAF50;
@@ -65,8 +74,8 @@ header h1 {
     text-decoration: none;
     border: 1px solid #fff;
     border-radius: 4px;
-    margin-top: 10px;
-    margin-right: 10px;
+    transition: 0.3s;
+    margin-left: auto;
 }
 
 .login-button:hover {
@@ -74,27 +83,68 @@ header h1 {
     border: 1px solid #4CAF50;
 }
 
-/* Liste des livres */
+/* Navigation */
+nav {
+    background-color: #f8f8f8;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+nav a {
+    color: #4CAF50;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #e6e6e6;
+    border-radius: 5px;
+}
+
+/* Section des livres */
+section h2 {
+    margin-top: 30px;
+    color: #4CAF50;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
 .book-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 .book-item {
     background-color: white;
-    padding: 15px;
+    padding: 20px;
     border: 1px solid #ddd;
-    width: 30%;
+    width: 280px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .book-item h3 {
-    margin-top: 0;
+    margin: 0 0 10px;
+    font-size: 18px;
 }
 
 .book-item p {
+    font-size: 14px;
+    color: #666;
     margin: 5px 0;
 }
 
@@ -103,8 +153,11 @@ header h1 {
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    width: 100%;
+    transition: background-color 0.3s;
 }
 
 .book-item button:hover {
@@ -116,33 +169,16 @@ header h1 {
     cursor: not-allowed;
 }
 
-/* Formulaire pour emprunts */
-form {
-    margin-top: 20px;
-    display: inline-block;
-}
-
-form input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-form input[type="submit"]:hover {
-    background-color: #45a049;
-}
-
 /* Footer */
 footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+    padding: 15px 0;
     position: relative;
     bottom: 0;
+    left: 0;
     width: 100%;
+    margin-top: 50px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }

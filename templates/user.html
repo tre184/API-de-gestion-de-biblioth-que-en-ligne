@@ -3,49 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bibliothèque en ligne - Mes Livres</title>
-    <link rel="stylesheet" href="/static/user.css">
+    <title>Bibliothèque en ligne</title>
+    <link rel="stylesheet" href="/static/css/user.css">
 </head>
 <body>
 <header>
-    <h1>Bibliothèque en ligne - Espace {{ user.name }}</h1>
-    <form class="search-bar" action="#" method="GET">
-        <input type="text" name="search" placeholder="Rechercher un livre...">
-        <button type="submit">Rechercher</button>
+    <div class="container">
+        <h1>Bibliothèque en ligne - Espace {{ user.name }}</h1>
+        <!-- Barre de recherche -->
+        <form class="search-bar" action="/search_books" method="GET">
+            <input type="text" name="title" placeholder="Rechercher par titre">
+            <input type="text" name="author" placeholder="Rechercher par auteur">
+            <input type="text" name="kind" placeholder="Rechercher par genre">
+            <button type="submit">Rechercher</button>
+        </form>
+
+    </div>
+
+    <form action="{{ request.url_for('logout') }}" method="post">
+        <button type="submit" class="login-button">Déconnexion</button>
     </form>
 
-    <!-- Lien de connexion -->
-    <a href="index.html" class="login-button">Deconnexion</a>
 </header>
 
+<nav>
+    <a href="{{ request.url_for('gestion_livres') }}">Gestion des livres</a>
+    <a href="{{ request.url_for('gestion_emprunts', username=user.name) }}">Gestion des emprunts</a>
+</nav>
+
 <section class="container">
-    <h2>Liste des livres disponibles</h2>
+    <h2>Nos Livres</h2>
     <div class="book-list">
-        <!-- Boucle Jinja pour afficher chaque livre -->
+        <!-- Boucle sur les livres dans Jinja2 -->
         {% for book in books %}
         <div class="book-item">
             <h3>Titre: {{ book.title }}</h3>
             <p>Auteur: {{ book.author }}</p>
-            <p>Publication: {{ book.year }}</p>
-            <p>Disponibilité: {{ 'Disponible' if book.available else 'Indisponible' }}</p>
-            <button type="button" {% if not book.available %} disabled {% endif %}>
-                {{ 'Emprunter' if book.available else 'Emprunté' }}
-            </button>
+            <p>Genre: {{ book.kind }}</p>
+            <p>Publication: {{ book.publication_date }}</p>
+            <p>Disponibilité: {% if book.availability %} Disponible {% else %} Indisponible {% endif %}</p>
+            <form action="{{ url_for('loan_book', username=user.name, book_title=book.title) }}" method="get">
+            <button type="submit" {% if not book.availability %} disabled {% endif %}>Emprunter</button>
+            </form>
         </div>
         {% endfor %}
     </div>
-</section>
-
-<section class="container">
-    <!-- Bouton pour voir les livres empruntés récemment -->
-    <form action="{{ url_for('recent_emprunts') }}" method="GET">
-        <input type="submit" value="Voir les livres empruntés récemment">
-    </form>
-
-    <!-- Bouton pour voir l'historique des emprunts -->
-    <form action="{{ url_for('historique_emprunts') }}" method="GET">
-        <input type="submit" value="Voir l'historique des emprunts">
-    </form>
 </section>
 
 <footer>
