@@ -15,7 +15,6 @@ engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 
 # Création de la table
-#Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
 
 # Gestion des sessions

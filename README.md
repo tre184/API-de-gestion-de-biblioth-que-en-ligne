@@ -39,4 +39,5 @@ SECRET_KEY
 
 ```bash
 fastapi dev main.py
+alembic init alembic
 ````

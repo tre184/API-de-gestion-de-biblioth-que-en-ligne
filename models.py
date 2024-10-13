@@ -19,7 +19,7 @@ class User(Base):
     def __repr__(self) -> str:
         return f"User[{self.id}] : {self.name}"
 
-# Definition dela table books
+# Definition de la table books
 class Book(Base):
     __tablename__ = 'books'
     id = Column(Integer, Sequence('books_seq'), primary_key=True)
@@ -39,9 +39,7 @@ class Emprunt(Base):
     __tablename__ = 'emprunts'
     id = Column(Integer, Sequence('emprunts_seq'), primary_key=True)
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
-    user = relationship("User", backref="emprunts")
     book_id = Column(Integer, ForeignKey('books.id'), nullable=False)
-    book = relationship("Book", backref="emprunts")
     borrow_date = Column(Date, default=date.today)
     return_date = Column(Date, nullable=False)
     returned = Column(Numeric(1), default=0)
